@@ -7,7 +7,7 @@ Companion for any PhoneGap Build beginner
 
 Simply upload your HTML5, CSS, and JavaScript assets to the Adobe® PhoneGap™ Build, which does compiling, packaging for your app so that you can run it on multiple platform including iOS, Android & Windows, without really having to build on those specific platforms (no XCode, Visual Studio, Android SDK required).
 
-For more information on PhoneGap Build please visit https://build.phonegap.com/
+For more infromation on PhoneGap Build please visit https://build.phonegap.com/
 
 Get started quickly 
 ======================
