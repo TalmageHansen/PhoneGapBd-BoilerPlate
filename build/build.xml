@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="PhoneGapBd-BoilerPlate" default="install.local" basedir="D:\github\gitroot\PhoneGapBd-BoilerPlate\">
+
+	<description>Build file for PhoneGapBd-BoilerPlate</description>
+
+	<target name="-load.properties" description="Set properties for this build">
+		<property name="assets.dir" value="${basedir}/assets" />
+		
+		<property name="deploy.dir" value="C:\www" />
+		
+		<property name="project.name" value="PGBD-BP" />
+		
+		<!--Source JS dir-->
+		<property name="src.js.dir"   value="${assets.dir}/js" />
+		<!--Source CSS dir-->
+		<property name="src.css.dir"  value="${assets.dir}/css" />
+		<!--Lib dir-->
+		<property name="src.lib.dir"  value="${assets.dir}/lib" />
+		<!--Image dir-->
+		<property name="src.img.dir"  value="${assets.dir}/img" />
+		<!--HTML dir-->
+		<property name="src.html.dir" value="${assets.dir}/html" />
+		<!--Resource dir-->
+		<property name="src.res.dir"  value="${assets.dir}/res" />
+		<!--Config dir-->
+		<property name="src.cfg.dir"  value="${assets.dir}/cfg" />
+
+		<!--Build version information -->
+		<property name="build.major" value="1" />
+		<property name="build.minor" value="0.0" />
+
+		<!--Output dir-->
+		<property name="distr.dir" value="${deploy.dir}\${project.name}-v${build.major}${build.minor}" />
+
+	</target>
+
+	<!--Create build directories-->
+	<target name="-init" depends="-load.properties" description="Create build directory structure">
+		<!--Create the time stamp for the new build-->
+		<tstamp>
+			<format property="TODAY" pattern="EEE, d MMM yyyy HH:mm:ss Z" />
+		</tstamp>
+
+		<!--Delete previous build files-->
+		<delete dir="${distr.dir}" />
+
+		<!--Recreate the build directories-->
+		<mkdir dir="${distr.dir}" />
+		<mkdir dir="${distr.dir}/css" />
+		<mkdir dir="${distr.dir}/html" />
+		<mkdir dir="${distr.dir}/img" />
+		<mkdir dir="${distr.dir}/js" />
+		<mkdir dir="${distr.dir}/lib" />
+		<mkdir dir="${distr.dir}/res" />
+
+		<!--Log the build timestamps to file-->
+		<echo file="${distr.dir}/distr.tstamp.txt" append="false">Build Date: ${TODAY}</echo>
+	</target>
+
+	<!--Copy www deploy(root) folder files-->
+	<target name="-copy.root" description="Copies deploy(root) folder files">
+		<copy file="${assets.dir}/index.html" todir="${distr.dir}"/>
+		<copy file="${assets.dir}/config.xml" todir="${distr.dir}"/>
+	</target>
+	
+	<!--Copy JS Libs files-->
+	<target name="-copy.lib" description="Copies Javascript Library (referenced) files">
+		<copy todir="${distr.dir}/lib">
+			<fileset dir="${src.lib.dir}">
+				<include name="**/*.*" />
+				<exclude name="" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!--Copy JS files-->
+	<target name="-copy.js" description="Copies Javascript files">
+		<copy todir="${distr.dir}/js">
+			<fileset dir="${src.js.dir}">
+				<include name="**/*.*" />
+				<exclude name="" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!--Copy CSS files-->
+	<target name="-copy.css" description="Copies CSS files">
+		<copy todir="${distr.dir}/css">
+			<fileset dir="${src.css.dir}">
+				<include name="**/*.*" />
+				<exclude name="" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!--Copy HTML files-->
+	<target name="-copy.html" description="Copies HTML files">
+		<copy todir="${distr.dir}/html">
+			<fileset dir="${src.html.dir}">
+				<include name="**/*.*" />
+				<exclude name="" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!--Copy Images files-->
+	<target name="-copy.img" description="Copies Images">
+		<copy todir="${distr.dir}/img">
+			<fileset dir="${src.img.dir}">
+				<include name="**/*.*" />
+				<exclude name="" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!--Copy Resources files-->
+	<target name="-copy.res" description="Copies Resources files">
+		<copy todir="${distr.dir}/res">
+			<fileset dir="${src.res.dir}">
+				<include name="**/*.*" />
+				<exclude name="" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!--Build-->
+	<target name="prod.install.complete" description="Builds project files for production use" depends="
+            -load.properties, 
+            -init">
+	</target>
+
+	<target name="prod.install" description="Builds project files for production use" depends="
+            -load.properties, 
+            -init">
+	</target>
+
+	<!-- This is a Development build, hence we do not compress/minimize files -->
+	<target name="install.distr" description="Builds project files for deploymnet or distribution" depends="
+            -load.properties, 
+            -init,
+			-copy.root,
+			-copy.lib,
+			-copy.js,
+			-copy.css,
+			-copy.html,
+			-copy.img,
+			-copy.res">
+	</target>
+
+	<target name="install.local" description="Builds project files for development installation" depends="
+            -load.properties,
+			-copy.root,
+			-copy.lib,
+			-copy.js,
+			-copy.css,
+			-copy.html,
+			-copy.img,
+			-copy.res">
+	</target>
+</project>
