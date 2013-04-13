@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns       = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "PhoneGapBd-BoilerPlate"
+        versionCode = "1"
+        version     = "1.0.0">
+ 
+    <name>PhoneGapBd-BoilerPlate Application</name>
+ 
+    <description>
+        PhoneGapBd-BoilerPlate
+    </description>
+ 
+	<author href="https://github.com/rajiff/PhoneGapBd-BoilerPlate" email="rajiff@gmail.com">
+        Basavaraj Kodgalli
+    </author>
+
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/notification"/>
+	<feature name="http://api.phonegap.com/1.0/file"/>
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/contacts"/>        
+    <feature name="http://api.phonegap.com/1.0/media"/> 
+
+ 	<icon src="res/icon/icon.png" gap:role="default" />
+
+ 	<!--  Preferences -->
+ 	 
+ 	<!--
+ 	if set to true, all links (even with target set to blank) will open in the app's webview
+ 	only use this preference if you want pages from your server to take over your entire app  
+ 	 -->
+ 	 <!-- <preference name="stay-in-webview" value="true" /> -->
+ 	 
+ 	 <!--  Splash screen
+ 	 if set to false, the spinner won't appear on the splash screen during app loading
+ 	 -->
+ 	 <!-- <gap:splash src="res/splash/ldpi_426_320.png" /> -->
+ 	 
+ 	 <gap:splash src="res/splash/ldpi_426_320.png"  gap:platform="android" gap:density="ldpi" />
+ 	 <gap:splash src="res/splash/mdpi_470_320.png"  gap:platform="android" gap:density="mdpi" />	 
+	 <gap:splash src="res/splash/hdpi_640_480.png"  gap:platform="android" gap:density="hdpi" />
+	 <gap:splash src="res/splash/xhdpi_960_720.png" gap:platform="android" gap:density="xhdpi" />
+	  	 
+ 	 <preference name="show-splash-screen-spinner" value="true" />
+ 	 <preference name="splash-screen-duration" value="6000" />
+ 	 
+ 	 <!-- if set to false, the splash screen must be hidden using a JavaScript API -->
+ 	 <preference name="auto-hide-splash-screen" value="true" />
+ 	 
+ 	 <!-- Android - supported versions -->
+ 	 <preference name="android-minSdkVersion" value="10" />
+ 	 <preference name="android-maxSdkVersion" value="15" />
+</widget>
