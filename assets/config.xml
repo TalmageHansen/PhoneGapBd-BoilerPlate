@@ -52,4 +52,5 @@
  	 <!-- Android - supported versions -->
  	 <preference name="android-minSdkVersion" value="10" />
  	 <preference name="android-maxSdkVersion" value="15" />
+ 	 <gap:plugin name="com.phonegap.plugins.childbrowser" />
 </widget>
